@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
@@ -41,6 +42,7 @@ namespace ContactsApp.Controls
                 control.nameTextBlock.Text = (e.NewValue as Contact).Name;
                 control.emailTextBlock.Text = (e.NewValue as Contact).Email;
                 control.phoneTextBlock.Text = (e.NewValue as Contact).Phone;
+                control.contactImage.Source = new BitmapImage(new Uri((e.NewValue as Contact).ImageUrl));
             } 
         }
 

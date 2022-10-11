@@ -1,5 +1,6 @@
 ﻿using ContactsAPI.Helpers;
 using ContactsAPI.Models;
+using Microsoft.Win32;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -32,6 +33,7 @@ namespace ContactsApp
             nameTextBox.Text = _contact.Name;
             emailTextBox.Text = _contact.Email;
             phoneNumberTextBox.Text = _contact.Phone;
+            imgUrlTextBlock.Text = _contact.ImageUrl;
 
             Owner = Application.Current.MainWindow;
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
@@ -42,6 +44,7 @@ namespace ContactsApp
             _contact.Name = nameTextBox.Text;
             _contact.Email = emailTextBox.Text;
             _contact.Phone = phoneNumberTextBox.Text;
+            _contact.ImageUrl = imgUrlTextBlock.Text;
 
             using HttpResponseMessage response = await ApiHelper.ApiClient.PutAsJsonAsync(ApiHelper.ApiClient.BaseAddress + "api/Contacts/Update", _contact);
 
@@ -62,6 +65,19 @@ namespace ContactsApp
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
+        }
+
+        private void ChangeImageButton_Click(object sender, RoutedEventArgs e)
+        {
+            OpenFileDialog dialog = new OpenFileDialog();
+            dialog.Filter = "Image files (*.png; *.jpg)|*.png;*.jpg;*.jpeg";
+            dialog.InitialDirectory = Environment.GetFolderPath(Environment.SpecialFolder.MyPictures);
+
+            if (dialog.ShowDialog() == true)
+            {
+                string fileName = dialog.FileName;
+                imgUrlTextBlock.Text = fileName;
+            }
         }
     }
 }

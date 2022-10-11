@@ -30,10 +30,12 @@
             <TextBox x:Name="nameTextBox" Margin="0,0,0,5"/>
             <TextBox x:Name="emailTextBox" Margin="0,0,0,5"/>
             <TextBox x:Name="phoneNumberTextBox" Margin="0,0,0,5"/>
+            <TextBlock x:Name="imgUrlTextBlock" Margin="0,0,0,5"
+                       Background="White"/>
 
-            <TextBlock x:Name="successText"/>
-
-            <Button Content="Update" Click="UpdateButton_Click" Margin="0,0,0,5"/>
+            <Button Content="Change Contact Image" Click="ChangeImageButton_Click" Margin="0,0,0,5"/>
+            <Button Content="Update" Click="UpdateButton_Click" Margin="0,0,0,5"
+                    Background="LimeGreen"/>
             <Button Content="Delete" Click="DeleteButton_Click" 
                     Background="Red" Foreground="White"/>
         </StackPanel>

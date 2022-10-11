@@ -8,11 +8,21 @@
              d:DesignHeight="100" d:DesignWidth="300">
     <Grid Background="LightGray">
 
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="100"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="100"/>
+        </Grid.RowDefinitions>
+        
         <StackPanel Margin="5">
             <TextBlock x:Name="nameTextBlock" Text="Name" FontSize="20" FontWeight="Bold"/>
             <TextBlock x:Name="emailTextBlock" Text="Email" FontSize="15" Foreground="DodgerBlue"/>
             <TextBlock x:Name="phoneTextBlock" Text="Phone Number" FontSize="15" FontStyle="Italic"/>
         </StackPanel>
-        
+
+        <Image x:Name="contactImage" Grid.Column="1" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+
     </Grid>
 </UserControl>
