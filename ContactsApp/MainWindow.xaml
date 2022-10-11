@@ -19,8 +19,7 @@
                      HorizontalAlignment="Left" VerticalAlignment="Center" Width="150"/>
 
         <ScrollViewer VerticalScrollBarVisibility="Auto" Grid.Row="1">
-            <StackPanel>
-                <ListView x:Name="contactsListView" Margin="5,0,5,0" SelectionChanged="contactsListView_SelectionChanged">
+            <ListView x:Name="contactsListView" Margin="5,0,5,0" SelectionChanged="contactsListView_SelectionChanged">
                     <ListView.ItemContainerStyle>
                         <Style TargetType="{x:Type ListViewItem}">
                             <Setter Property="HorizontalContentAlignment" Value="Stretch"/>
@@ -32,8 +31,8 @@
                             <i:ContactControl Contact="{Binding}"/>
                         </DataTemplate>
                     </ListView.ItemTemplate>
-                </ListView>
-            </StackPanel>
+            </ListView>
+
         </ScrollViewer>
         
         <Button HorizontalAlignment="Center" VerticalAlignment="Top" Content="New Contact" 
