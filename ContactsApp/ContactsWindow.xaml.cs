@@ -26,14 +26,17 @@ namespace ContactsApp
         public ContactsWindow()
         {
             InitializeComponent();
-
+            
+            //Set the owner of the contacts window
             Owner = Application.Current.MainWindow;
+            
+            //Set the starting position for the contacts window to the center of it's owner
             WindowStartupLocation = WindowStartupLocation.CenterOwner;
         }
 
         private async void SaveButton_Click(object sender, RoutedEventArgs e)
         {
-            //Save Contact
+            //Save and fill in Contact
             Contact contact = new Contact
             {
                 Name = nameTextBox.Text,
@@ -41,6 +44,7 @@ namespace ContactsApp
                 Phone = phoneNumberTextBox.Text
             };
 
+            //Make the Api call to post a new contact using ApiHelper
             using (HttpResponseMessage response = await ApiHelper.ApiClient.PostAsJsonAsync((ApiHelper.ApiClient.BaseAddress + "api/Contacts"), contact))
             {
                 if (response.IsSuccessStatusCode)
@@ -51,6 +55,7 @@ namespace ContactsApp
             Close();
         }
 
+        //Close Window
         private void CloseButton_Click(object sender, RoutedEventArgs e)
         {
             Close();
