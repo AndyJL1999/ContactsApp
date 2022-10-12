@@ -35,6 +35,7 @@ namespace ContactsApp
             LoadAllContacts();
         }
 
+        //Opens a window for adding contacts
         private void AddContactButton_Click(object sender, RoutedEventArgs e)
         {
             ContactsWindow newContactsWindow = new ContactsWindow();
@@ -43,6 +44,7 @@ namespace ContactsApp
             LoadAllContacts();
         }
 
+        //Makes an api call using the ApiHelper to get all contacts and place them in a IEnumerable container
         private async void LoadAllContacts()
         {
             using (HttpResponseMessage response = await ApiHelper.ApiClient.GetAsync(ApiHelper.ApiClient.BaseAddress + "api/Contacts/GetAll"))
@@ -64,6 +66,7 @@ namespace ContactsApp
             }
         }
 
+        //Whenever the inside of the search box changes => filter the list view
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
             TextBox searchBox = sender as TextBox;
@@ -73,6 +76,7 @@ namespace ContactsApp
             contactsListView.ItemsSource = filteredList;
         }
 
+        //Open the details window when a contact is selected
         private void contactsListView_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             Contact selectedContact = (Contact)contactsListView.SelectedItem;
