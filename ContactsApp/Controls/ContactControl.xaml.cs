@@ -33,6 +33,7 @@ namespace ContactsApp.Controls
             DependencyProperty.Register("Contact", typeof(Contact), typeof(ContactControl), 
                 new PropertyMetadata(new Contact { Name="Name", Email="Email",Phone="Phone Number"}, SetText));
 
+        //Sets the text for the contact within the list item view
         private static void SetText(DependencyObject d, DependencyPropertyChangedEventArgs e)
         {
             ContactControl control = d as ContactControl;
