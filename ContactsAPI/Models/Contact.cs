@@ -16,7 +16,7 @@ namespace ContactsAPI.Models
         public string Phone { get; set; }
 
         [MaxLength(200)]
-        public string ImageUrl { get; set; } = "./Assets/user.png";
+        public string ImageUrl { get; set; }
         public override string ToString()
         {
             return $"{Name} - {Email} - {Phone}";
